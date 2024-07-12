@@ -1,6 +1,5 @@
 import { trpc } from '../../trpc';
 import { customersRouter } from './customers.router';
-import { customersTestData } from '@ai/db';
 
 const { createCallerFactory } = trpc;
 const createCaller = createCallerFactory(customersRouter);
