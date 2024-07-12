@@ -1,9 +1,29 @@
 {
   "name": "@ai/crm-trpc-server",
   "version": "0.0.1",
-  "dependencies": {},
+  "scripts": {
+    "introspect": "drizzle-kit ingrospect --conifg=drizzle.config.ts",
+    "generate": "drizzle-kit generate  --config ./drizzle.config.ts",
+    "drop": "drizzle-kit drop --config ./drizzle.config.ts",
+    "studio": "drizzle-kit studio",
+    "migrate": "cross-env DB_MIGRATING=true drizzle-kit push  --config ./drizzle.config.ts",
+    "seed": "tsx src/seed.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.32.0",
+    "drizzle-zod": "^0.5.1",
+    "postgres": "^3.4.4",
+    "zod": "^3.23.8"
+  },
   "main": "./index.js",
   "module": "./index.mjs",
   "typings": "./index.d.ts",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "drizzle-kit": "^0.23.0",
+    "tsx": "^4.16.2"
+  }
 }

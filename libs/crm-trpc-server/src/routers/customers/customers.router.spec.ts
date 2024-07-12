@@ -12,9 +12,10 @@ describe('customersRouter', () => {
   });
 
   it('should get all customers', async () => {
-    const allCustomers = await caller.all();
+    const input = { limit: 20, offset: 20 };
+    const allCustomers = await caller.all(input);
 
     expect(allCustomers).toBeTruthy();
-    // expect(allCustomers.length).toBe(customersTestData.length);
+    expect(allCustomers.length).toBe(input.limit);
   });
 });
