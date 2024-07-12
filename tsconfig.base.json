@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ai/crm-trpc-server": ["libs/crm-trpc-server/src/index.ts"],
-      "@ai/db": ["libs/db/src/index.ts"]
+      "@ai/crm-trpc-server": ["libs/crm-trpc-server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
