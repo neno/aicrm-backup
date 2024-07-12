@@ -33,12 +33,12 @@ export const customers = pgTable(
     address: text('address'),
     createdAt: timestamp('created_at', { mode: 'string' }).defaultNow(),
     updatedAt: timestamp('updated_at', { mode: 'string' }).defaultNow(),
-    fullText: text('full_text'),
+    fullText: text('full_text').notNull(),
   },
   (table) => ({
     fullTextIndex: index('full_text_index').using(
       'gin',
-      sql`to_tsvector(${table.fullText})`
+      sql`to_tsvector('german', ${table.fullText})`
     ),
   })
 );

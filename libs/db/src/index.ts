@@ -1,3 +1,4 @@
+export const dbconfig = 'dotenv.confg';
 export * from './entities';
 export * as CustomerInteractor from './interactors';
 

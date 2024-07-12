@@ -1,9 +1,6 @@
 import { Customer } from '../../entities';
 
-export const customers: Omit<
-  Customer,
-  'createdAt' | 'updatedAt' | 'fullText'
->[] = [
+export const customers: Omit<Customer, 'createdAt' | 'updatedAt'>[] = [
   {
     firstName: 'Ramona',
     lastName: 'Moreno',
@@ -11011,4 +11008,7 @@ export const customers: Omit<
     address:
       'Herr\r\nJustina Brewer\r\nP.O. Box 964, 5258 Tincidunt Street\r\n4751 Guadalupe\r\nAustria',
   },
-];
+].map((c) => ({
+  ...c,
+  fullText: `${c.lastName} ${c.firstName} ${c.company} ${c.locality}`.trim(),
+}));
