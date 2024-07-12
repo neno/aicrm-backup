@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ai/trpc-client": ["libs/trpc-client/src/index.ts"],
-      "@ai/trpc-server": ["libs/trpc-server/src/index.ts"]
+      "@ai/db": ["libs/db/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
