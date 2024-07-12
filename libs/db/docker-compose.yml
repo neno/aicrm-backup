@@ -9,4 +9,4 @@ services:
     ports:
       - ${DB_PORT}:5432
     volumes:
-      - ./data:/data/postgres
+      - ./db-data:/data/postgres
