@@ -6,6 +6,14 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "scripts": {
+    "introspect": "drizzle-kit ingrospect --conifg=drizzle.config.ts",
+    "generate": "drizzle-kit generate  --config ./drizzle.config.ts",
+    "drop": "drizzle-kit drop --config ./drizzle.config.ts",
+    "studio": "drizzle-kit studio",
+    "migrate": "cross-env DB_MIGRATING=true drizzle-kit push  --config ./drizzle.config.ts",
+    "seed": "tsx src/seed.ts"
+  },
   "dependencies": {
     "drizzle-orm": "^0.32.0",
     "drizzle-zod": "^0.5.1",
