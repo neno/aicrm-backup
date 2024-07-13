@@ -1,10 +1,22 @@
 import { z } from 'zod';
 import { Customer, InsertCustomer } from '../entities';
+import { CustomerItemDto, CustomerItemOrderBy, OrderDirEnum } from '../../dto';
+
+// export const OrderByEnum = CustomerItemDto;
+// export const OrderDirEnum = z.enum(['asc', 'desc']);
+// export type OrderDirEndum = z.infer<typeof OrderDirEnum>;
 
 export const GetAllCustomers = z
   .function()
-  .args(z.object({ limit: z.number(), offset: z.number() }))
-  .returns(z.promise(Customer.array()));
+  .args(
+    z.object({
+      limit: z.number(),
+      offset: z.number(),
+      orderBy: CustomerItemOrderBy,
+      // orderDir: OrderDirEnum,
+    })
+  )
+  .returns(z.promise(CustomerItemDto.array()));
 
 export const SearchCustomers = z
   .function()
@@ -13,9 +25,11 @@ export const SearchCustomers = z
       searchString: z.string(),
       limit: z.number(),
       offset: z.number(),
+      orderBy: CustomerItemOrderBy,
+      orderDir: OrderDirEnum,
     })
   )
-  .returns(z.promise(Customer.array()));
+  .returns(z.promise(CustomerItemDto.array()));
 
 export const CreateCustomer = z
   .function()

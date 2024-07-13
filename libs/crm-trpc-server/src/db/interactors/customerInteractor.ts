@@ -1,4 +1,4 @@
-import { eq, sql } from 'drizzle-orm';
+import { asc, desc, eq, sql } from 'drizzle-orm';
 import db from '../db-client';
 import { customers } from '../schema';
 import {
@@ -7,18 +7,27 @@ import {
   GetAllCustomers,
   SearchCustomers,
 } from './customerInteractor.types';
+import { CustomerItemDto, OrderDirEnum } from '../../dto';
 
-export const all = GetAllCustomers.implement(async ({ limit, offset }) => {
-  const customersList = await db
-    .select()
-    .from(customers)
-    .offset(offset)
-    .limit(limit);
-  return customersList;
-});
+export const all = GetAllCustomers.implement(
+  async ({ limit, offset, orderBy }) => {
+    const customersList = await db
+      .select()
+      .from(customers)
+      .offset(offset)
+      .limit(limit)
+      .orderBy(asc(customers[orderBy]));
+    // .orderBy(
+    //   orderDir === OrderDirEnum.Enum.asc
+    //     ? asc(customers[orderBy])
+    //     : desc(customers[orderBy])
+    // );
+    return customersList;
+  }
+);
 
 export const search = SearchCustomers.implement(
-  async ({ searchString, offset, limit }) => {
+  async ({ searchString, offset, limit, orderBy, orderDir }) => {
     const customersFound = await db
       .select()
       .from(customers)
@@ -26,6 +35,13 @@ export const search = SearchCustomers.implement(
         sql.raw(
           `to_tsvector(full_text) @@ to_tsquery("${searchString}:*") OFFSET=${offset} LIMIT=${limit}`
         )
+      )
+      .offset(offset)
+      .limit(limit)
+      .orderBy(
+        orderDir === OrderDirEnum.Enum.asc
+          ? asc(customers[orderBy])
+          : desc(customers[orderBy])
       );
 
     return customersFound;
