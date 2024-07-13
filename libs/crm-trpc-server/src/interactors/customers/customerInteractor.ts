@@ -1,6 +1,6 @@
 import { asc, desc, eq, sql } from 'drizzle-orm';
-import db from '../db-client';
-import { customers } from '../schema';
+import db from '../../db/db-client';
+import { customers } from '../../db/schema';
 import {
   CreateCustomer,
   FindCustomerById,

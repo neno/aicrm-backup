@@ -1,10 +1,6 @@
 import { z } from 'zod';
-import { Customer, InsertCustomer } from '../entities';
+import { Customer, InsertCustomer } from '../../db/entities';
 import { CustomerItemDto, CustomerItemOrderBy, OrderDirEnum } from '../../dto';
-
-// export const OrderByEnum = CustomerItemDto;
-// export const OrderDirEnum = z.enum(['asc', 'desc']);
-// export type OrderDirEndum = z.infer<typeof OrderDirEnum>;
 
 export const GetAllCustomers = z
   .function()
