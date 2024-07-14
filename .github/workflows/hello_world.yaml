@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: hello world
-        run: echo "Hello World"
+      - name: hi neno
+        run: echo "Hi Neno"
         shell: bash
   goodbye:
     runs-on: ubuntu-latest
