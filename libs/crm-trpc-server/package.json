@@ -2,18 +2,23 @@
   "name": "@ai/crm-trpc-server",
   "version": "0.0.1",
   "scripts": {
-    "introspect": "drizzle-kit ingrospect --conifg=drizzle.config.ts",
-    "generate": "drizzle-kit generate  --config ./drizzle.config.ts",
-    "drop": "drizzle-kit drop --config ./drizzle.config.ts",
-    "studio": "drizzle-kit studio",
-    "migrate": "cross-env DB_MIGRATING=true drizzle-kit push  --config ./drizzle.config.ts",
-    "seed": "tsx src/db/seed.ts"
+    "db:introspect": "drizzle-kit ingrospect --conifg=drizzle.config.ts",
+    "db:generate": "drizzle-kit generate  --config ./drizzle.config.ts",
+    "db:drop": "drizzle-kit drop --config ./drizzle.config.ts",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "cross-env DB_MIGRATING=true drizzle-kit push  --config ./drizzle.config.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "lint": "npx nx lint crm-trpc-server",
+    "lint:fix": "npx nx lint crm-trpc-server --fix"
   },
   "dependencies": {
     "drizzle-orm": "^0.32.0",
     "drizzle-zod": "^0.5.1",
     "postgres": "^3.4.4",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "drizzle-kit": "^0.23.0",
+    "dotenv": "^16.4.5",
+    "@trpc/server": "^10.45.2"
   },
   "main": "./index.js",
   "module": "./index.mjs",
