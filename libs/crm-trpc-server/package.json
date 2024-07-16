@@ -11,19 +11,20 @@
     "lint": "npx nx lint crm-trpc-server",
     "lint:fix": "npx nx lint crm-trpc-server --fix"
   },
-  "dependencies": {
-    "drizzle-orm": "^0.32.0",
-    "drizzle-zod": "^0.5.1",
-    "postgres": "^3.4.4",
-    "zod": "^3.23.8",
-    "drizzle-kit": "^0.23.0",
-    "dotenv": "^16.4.5",
-    "@trpc/server": "^10.45.2"
-  },
   "main": "./index.js",
   "module": "./index.mjs",
   "typings": "./index.d.ts",
   "private": true,
+  "dependencies": {
+    "@trpc/server": "^10.45.2",
+    "drizzle-orm": "^0.32.0",
+    "drizzle-zod": "^0.5.1",
+    "postgres": "^3.4.4",
+    "tslib": "^2.6.3",
+    "zod": "^3.23.8",
+    "drizzle-kit": "^0.23.0",
+    "dotenv": "^16.4.5"
+  },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",

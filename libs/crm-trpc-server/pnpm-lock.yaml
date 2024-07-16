@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@trpc/server':
+        specifier: ^10.45.2
+        version: 10.45.2
       drizzle-orm:
         specifier: ^0.32.0
         version: 0.32.0(postgres@3.4.4)
@@ -17,6 +20,9 @@ importers:
       postgres:
         specifier: ^3.4.4
         version: 3.4.4
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -453,6 +459,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@trpc/server@10.45.2':
+    resolution: {integrity: sha512-wOrSThNNE4HUnuhJG6PfDRp4L2009KDVxsd+2VYH8ro6o/7/jwYZ8Uu5j+VaW+mOmc8EHerHzGcdbGNQSAUPgg==}
+
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
@@ -640,6 +649,9 @@ packages:
   source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
+
+  tslib@2.6.3:
+    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
   tsx@4.16.2:
     resolution: {integrity: sha512-C1uWweJDgdtX2x600HjaFaucXTilT7tgUZHbOE4+ypskZ1OP8CRCSDkCxG6Vya9EwaFIVagWwpaVAn5wzypaqQ==}
@@ -870,6 +882,8 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
+  '@trpc/server@10.45.2': {}
+
   buffer-from@1.1.2: {}
 
   cross-env@7.0.3:
@@ -1022,6 +1036,8 @@ snapshots:
       source-map: 0.6.1
 
   source-map@0.6.1: {}
+
+  tslib@2.6.3: {}
 
   tsx@4.16.2:
     dependencies:

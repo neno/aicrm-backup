@@ -1,7 +1,6 @@
 import { customersTestData } from '../../db';
 import { trpc } from '../../trpc';
 import { customersRouter } from './customers.router';
-import { describe, it, expect } from 'vitest';
 
 const { createCallerFactory } = trpc;
 const createCaller = createCallerFactory(customersRouter);
