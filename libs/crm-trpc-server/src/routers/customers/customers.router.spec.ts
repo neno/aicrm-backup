@@ -1,6 +1,14 @@
+import { mockDeep } from 'jest-mock-extended';
 import { customersTestData } from '../../db';
 import { trpc } from '../../trpc';
-import { customersRouter } from './customers.router';
+import makeCustomersRouter from './customers.router';
+import makeCustomersInteractor from '../../interactors/customers/customersInteractor';
+import { db } from '../../db/db-client';
+
+// const customersRouterMock = mockDeep
+
+const customersInteractor = makeCustomersInteractor(db);
+export const customersRouter = makeCustomersRouter(customersInteractor);
 
 const { createCallerFactory } = trpc;
 const createCaller = createCallerFactory(customersRouter);

@@ -1,9 +1,9 @@
-import db from '../db-client';
+import Db from '../db-client';
 import { customers } from './data/customers';
 import { customers as customersSchema } from '../schema';
 import { sql } from 'drizzle-orm';
 
-export default async function seedCustomers(db: db) {
+export default async function seedCustomers(db: Db) {
   await db.insert(customersSchema).values(customers);
   await db.execute(
     sql.raw(
