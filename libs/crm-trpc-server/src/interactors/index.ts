@@ -1,1 +1,1 @@
-export * as customerInteractor from './customers/customerInteractor';
+export * as customerInteractor from './customers/customersInteractor';

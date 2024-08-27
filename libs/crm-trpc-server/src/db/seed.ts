@@ -1,14 +1,12 @@
 import 'dotenv/config';
 import { Table, getTableName, sql } from 'drizzle-orm';
-import db, { connection } from './db-client';
+import { connection, db, DB } from './db-client';
 import * as schema from './schema';
 import * as seeds from './seeds';
 
-type DB = typeof db;
-
 (async function () {
   async function resetTable(db: DB, table: Table) {
-    return db.execute(
+    return await db.execute(
       sql.raw(`TRUNCATE TABLE ${getTableName(table)} RESTART IDENTITY CASCADE`)
     );
   }
